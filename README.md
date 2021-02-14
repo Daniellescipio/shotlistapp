@@ -9,3 +9,52 @@ Shotlist Pro is a mobile first PWA for planing small to medium video and photo p
 -  Create simple call sheets from production details
 
 
+### Production Data Structure
+
+```JS
+const productionModel = {
+  "production_collection":
+    [
+      {
+        "title": "",
+        "description": "",
+        "scenes":
+          [
+            {
+              "date": "02/13/21",
+              "time": "11:00 AM",
+              "location": "",
+              "notes": "",
+              "shots": [
+                {
+                  "category": "",
+                  "categoryImage": "Custome Image || Default Image",
+                  "status": "",
+                  "description": "",
+                  "image": "url",
+                  "categoryImage": "",
+                  "equipment": [
+                    {
+                      "name": "",
+                      "category": "",
+                      "icon": ""
+                    }
+                  ]
+                }
+              ],
+              "people": [
+                {
+                  "headshot": "",
+                  "name": "",
+                  "role": "",
+                  "email": "",
+                  "phone": ""
+                }
+              ],
+
+            }
+          ]
+      }
+    ]
+}
+```
