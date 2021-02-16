@@ -19,7 +19,7 @@ As a photographer, filmmaker, or producer **Shot List Pro** helps you plan and d
 
 ### Tech Stack: 
 React
-
+Mongo
 
 
 ### Data Structure for a "Production"
