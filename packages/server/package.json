@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "reset": "seed -u 'mongodb://127.0.0.1:27017/shotlistpro' --drop-database ./seeds/"
   }
 }
