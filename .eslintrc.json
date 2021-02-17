@@ -1,5 +1,9 @@
 {
-  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:monorepo/recommended"
+  ],
   "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": 12

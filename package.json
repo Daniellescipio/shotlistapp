@@ -24,7 +24,9 @@
   },
   "devDependencies": {
     "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-monorepo": "^0.3.2",
     "eslint-plugin-prettier": "^3.3.1",
     "lerna": "^3.22.1",
     "mongo-seeding": "^3.5.0",
