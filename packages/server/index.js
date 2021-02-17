@@ -8,8 +8,9 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(morgan("dev"));
 app.use(express.json());
 
+
 mongoose.connect(
-  "mongodb://localhost:27017/shot-list",
+  "mongodb://localhost:27017/shotlistpro",
   {
     useNewUrlParser: true,
     useFindAndModify: false,
