@@ -1,6 +1,6 @@
 const { model, Schema } = require("mongoose");
 
-const peopleSchema = new Schema({
+const personSchema = new Schema({
   headshot: {
     type: String,
   },
@@ -27,7 +27,7 @@ const peopleSchema = new Schema({
         value === "producer",
       `The {PATH} can only be talent, director, photographer, or producer`,
     ],
-  },
+  }
 });
 
-module.exports = model("people", peopleSchema);
+module.exports = model("person", personSchema);
