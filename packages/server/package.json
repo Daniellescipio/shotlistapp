@@ -5,5 +5,16 @@
   "scripts": {
     "start": "nodemon index.js",
     "reset": "seed -u 'mongodb://127.0.0.1:27017/shotlistpro' --drop-database ./seeds/"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "faker": "^5.4.0",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "mongo-seeding": "^3.5.0",
+    "nodemon": "^2.0.7"
   }
 }
