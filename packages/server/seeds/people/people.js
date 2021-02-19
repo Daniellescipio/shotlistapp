@@ -21,4 +21,3 @@ const peopleGenerator = () => {
 };
 
 module.exports = repeater(20, peopleGenerator);
-

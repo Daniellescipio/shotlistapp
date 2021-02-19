@@ -8,5 +8,5 @@ module.exports = [
   "Grip",
   "Photographer",
   "Stylist",
-  "Production Assistant"
-]
+  "Production Assistant",
+];
