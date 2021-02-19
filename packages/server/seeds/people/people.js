@@ -1,17 +1,14 @@
-//Use Faker https://github.com/Marak/faker.js for random data
-let faker = require('faker');
+// Use Faker https://github.com/Marak/faker.js for random data
+const faker = require("faker");
+const repeater = require("../../helpers/generateSeedData");
+const rolesArray = require("../roles");
 
-const repeater = require("../../../common/generateSeedData")
-
-let rolesArray = require("../roles")
-
-//returns object with avatar, name, email, phone number 
+// returns object with avatar, name, email, phone number
 const peopleGenerator = () => {
-
   const randomRole = () => {
-    const randomIndex = Math.floor(Math.random() * rolesArray.length)
-    return rolesArray[randomIndex]
-  }
+    const randomIndex = Math.floor(Math.random() * rolesArray.length);
+    return rolesArray[randomIndex];
+  };
 
   return {
     name: faker.name.findName(),
@@ -19,8 +16,9 @@ const peopleGenerator = () => {
     email: faker.internet.email(),
     phoneNumber: faker.phone.phoneNumberFormat(),
     avatar: faker.image.cats(),
-    skills: faker.lorem.words()
-  }
+    skills: faker.lorem.words(),
+  };
 };
 
-module.exports = repeater(20, peopleGenerator)
+module.exports = repeater(20, peopleGenerator);
+
