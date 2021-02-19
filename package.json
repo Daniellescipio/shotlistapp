@@ -43,9 +43,9 @@
   ],
   "scripts": {
     "start": " lerna bootstrap && lerna run start --parallel",
-    "prettier": "prettier --config .prettierrc --write \"**/*.{js,jsx}\"",
+    "prettier": "prettier --config .prettierrc.json --write \"**/*.{js,jsx}\"",
     "fix-styles": "prettier-stylelint --write \"**/*.{css,scss,less}\"",
-    "prettier-docs": "prettier --config .prettierrc --write \"**/*.md\"",
+    "prettier-docs": "prettier --config .prettierrc.json --write \"**/*.md\"",
     "lint": "eslint --cache \"**/*.{js,jsx}\""
   },
   "lint-staged": {
