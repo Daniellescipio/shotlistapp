@@ -9,17 +9,21 @@ const productionSchema = new Schema({
     type: String,
     required: true,
   },
-    scenes: [{
-        type: Schema.Types.ObjectId,
-        ref: "scene",
-    }],
-  people: [{
-    type: Schema.Types.ObjectId,
-    ref: "person",
-  }],
+  scenes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "scene",
+    },
+  ],
+  people: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "person",
+    },
+  ],
   thumbnail: {
     type: String,
-  }
+  },
 });
 
 module.exports = model("production", productionSchema);
