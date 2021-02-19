@@ -1,4 +1,5 @@
 const { model, Schema } = require("mongoose");
+
 const equipmentSchema = new Schema({
   name: {
     type: String,
@@ -7,13 +8,9 @@ const equipmentSchema = new Schema({
   category: {
     type: String,
     validate: [
-      value =>
-        value === "cameras" ||
-        value === "lens" ||
-        value === "lighting" 
-    ]
+      value => value === "cameras" || value === "lens" || value === "lighting",
+    ],
   },
-
 });
 
 module.exports = model("equipment", equipmentSchema);

@@ -21,9 +21,10 @@ jobs:
         run: yarn
 
       - name: Run linters
-        uses: samuelmeuli/lint-action@v1
+        uses: wearerequired/lint-action@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Enable linters
-          eslint: true
           prettier: true
+          eslint: true
+          auto_fix: true

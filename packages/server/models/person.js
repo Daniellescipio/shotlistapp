@@ -27,7 +27,7 @@ const personSchema = new Schema({
         value === "producer",
       `The {PATH} can only be talent, director, photographer, or producer`,
     ],
-  }
+  },
 });
 
 module.exports = model("person", personSchema);
