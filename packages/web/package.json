@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@shot-list-pro/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,12 +13,13 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "@shot-list-pro/ui-lib": "*",
+    "@shot-list-pro/utils": "*"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
