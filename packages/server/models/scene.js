@@ -12,12 +12,6 @@ const sceneSchema = new Schema({
       type: String,
     },
   ],
-  shots: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "shot",
-    },
-  ],
   thumbnail: {
     type: String,
   },
