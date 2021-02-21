@@ -16,7 +16,7 @@ productionRouter.get("/", (req, res, next) => {
     return res.status(200).send(productions);
   });
 });
-
+// get a production
 productionRouter.get("/:productionId", (req, res, next) => {
   Production.find({ _id: req.params.productionId }, (err, production) => {
     if (err) {
@@ -26,7 +26,6 @@ productionRouter.get("/:productionId", (req, res, next) => {
     return res.status(200).send(production);
   });
 });
-
 // add a production
 productionRouter.post("/", (req, res, next) => {
   const newProduction = new Production(req.body);
@@ -38,8 +37,7 @@ productionRouter.post("/", (req, res, next) => {
     return res.status(200).send(savedProduction);
   });
 });
-
-// Add a scene
+// add a new scene
 productionRouter.put("/:productionId/addScene", (req, res, next) => {
   const newScene = new Scene(req.body);
   Production.findOneAndUpdate(
@@ -56,8 +54,23 @@ productionRouter.put("/:productionId/addScene", (req, res, next) => {
     }
   );
 });
-
-// add a person
+// add an existing scene
+productionRouter.put("/:productionId/:sceneId/addScene", (req, res, next) => {
+  const existingScene = req.params.sceneId;
+  Production.findOneAndUpdate(
+    { _id: req.params.productionId },
+    { $push: { scenes: existingScene } },
+    { new: true },
+    (err, updatedProduction) => {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
+      return res.status(200).send(updatedProduction);
+    }
+  );
+});
+// add a new person
 productionRouter.put("/:productionId/addPerson", (req, res, next) => {
   const newPerson = new Person(req.body);
   Production.findOneAndUpdate(
@@ -74,7 +87,23 @@ productionRouter.put("/:productionId/addPerson", (req, res, next) => {
     }
   );
 });
-// add a shot
+// add an existing person
+productionRouter.put("/:productionId/:personId/addPerson", (req, res, next) => {
+  const existingPerson = req.params.personId;
+  Production.findOneAndUpdate(
+    { _id: req.params.productionId },
+    { $push: { people: existingPerson } },
+    { new: true },
+    (err, updatedProduction) => {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
+      return res.status(200).send(updatedProduction);
+    }
+  );
+});
+// add a new shot
 productionRouter.put("/:productionId/:sceneId/addShot", (req, res, next) => {
   req.body.scene = req.params.sceneId;
   const newShot = new Shot(req.body);
@@ -88,6 +117,22 @@ productionRouter.put("/:productionId/:sceneId/addShot", (req, res, next) => {
         return next(err);
       }
       newShot.save();
+      return res.status(200).send(updatedProduction);
+    }
+  );
+});
+// add an exisiting shot
+productionRouter.put("/:productionId/:personId/addPerson", (req, res, next) => {
+  const existingPerson = req.params.personId;
+  Production.findOneAndUpdate(
+    { _id: req.params.productionId },
+    { $push: { people: existingPerson } },
+    { new: true },
+    (err, updatedProduction) => {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
       return res.status(200).send(updatedProduction);
     }
   );
@@ -124,7 +169,6 @@ productionRouter.put(
           res.status(500);
           return next(err);
         }
-        Person.remove({ _id: req.params.personId });
         return res.status(200).send(updatedProduction);
       }
     );
@@ -156,7 +200,6 @@ productionRouter.delete("/:productionId", (req, res, next) => {
     return res.status(200).send("The production has been deleted");
   });
 });
-
 // edit a production
 productionRouter.put("/:productionId", (req, res, next) => {
   Production.findOneAndUpdate(
