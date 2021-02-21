@@ -21,6 +21,12 @@ const productionSchema = new Schema({
       ref: "person",
     },
   ],
+  shots: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "shot",
+    },
+  ],
   thumbnail: {
     type: String,
   },
