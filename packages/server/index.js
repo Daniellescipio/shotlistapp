@@ -19,6 +19,16 @@ mongoose.connect(
   () => console.log("connected to mongodb")
 );
 
+app.use("/productions", require("./routes/productionRouter"));
+app.use("/scenes", require("./routes/sceneRouter"));
+app.use("/people", require("./routes/personRouter"));
+app.use("/shots", require("./routes/shotRouter"));
+
+app.use((err, _, res) => {
+  console.log(err);
+  res.send({ error: err.message });
+});
+
 app.listen(4000, () => {
   console.log("server running on port 4000");
 });

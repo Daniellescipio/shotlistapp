@@ -17,6 +17,11 @@ const shotSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  scene: {
+    type: Schema.Types.ObjectId,
+    ref: "scene",
+    required: true,
+  },
 });
 
 module.exports = model("shot", shotSchema);
