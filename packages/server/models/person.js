@@ -19,14 +19,6 @@ const personSchema = new Schema({
   },
   role: {
     type: String,
-    validate: [
-      value =>
-        value === "talent" ||
-        value === "director" ||
-        value === "photographer" ||
-        value === "producer",
-      `The {PATH} can only be talent, director, photographer, or producer`,
-    ],
   },
 });
 
