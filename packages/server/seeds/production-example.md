@@ -1,4 +1,5 @@
-const productionObjectExample = {
+```JS
+{
   _id: { $oid: "60345e3cb60abc4c101365f3" },
   name: "Kihn - Jacobi - Sleek Plastic Cheese",
   brief: "String Sentance",
@@ -23,3 +24,4 @@ const productionObjectExample = {
     },
   ],
 };
+```
