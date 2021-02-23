@@ -1,4 +1,11 @@
 {
-  "name": "utils",
-  "version": "0.0.0"
+  "name": "@shot-list-pro/utils",
+  "version": "0.1.0",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.2"
+  }
 }
