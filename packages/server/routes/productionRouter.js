@@ -27,7 +27,7 @@ productionRouter.get("/:productionId", (req, res, next) => {
         res.status(500);
         return next(err);
       }
-      console.log(production.people);
+      // console.log(production.people);
       return res.status(200).send(production);
     });
 });
