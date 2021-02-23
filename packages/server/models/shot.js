@@ -16,6 +16,12 @@ const shotSchema = new Schema({
   default: {
     type: Boolean,
     required: true,
+    default: false,
+  },
+  scene: {
+    type: Schema.Types.ObjectId,
+    ref: "scene",
+    required: true,
   },
   scene: {
     type: Schema.Types.ObjectId,

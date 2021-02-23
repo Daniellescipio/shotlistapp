@@ -18,13 +18,18 @@ productionRouter.get("/", (req, res, next) => {
 });
 // get a production
 productionRouter.get("/:productionId", (req, res, next) => {
-  Production.find({ _id: req.params.productionId }, (err, production) => {
-    if (err) {
-      res.status(500);
-      return next(err);
-    }
-    return res.status(200).send(production);
-  });
+  Production.findOne({ _id: req.params.productionId })
+    .populate("scenes")
+    .populate("people")
+    .populate("shots")
+    .exec((err, production) => {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
+      // console.log(production.people);
+      return res.status(200).send(production);
+    });
 });
 // add a production
 productionRouter.post("/", (req, res, next) => {
@@ -109,7 +114,7 @@ productionRouter.put("/:productionId/:sceneId/addShot", (req, res, next) => {
   const newShot = new Shot(req.body);
   Production.findOneAndUpdate(
     { _id: req.params.productionId },
-    { $push: { shot: newShot } },
+    { $push: { shots: newShot } },
     { new: true },
     (err, updatedProduction) => {
       if (err) {
@@ -178,7 +183,7 @@ productionRouter.put(
 productionRouter.put("/:productionId/:shotId/removeShot", (req, res, next) => {
   Production.findOneAndUpdate(
     { _id: req.params.productionId },
-    { $pull: { responses: req.params.shotId } },
+    { $pull: { shots: req.params.shotId } },
     { new: true },
     (err, updatedProduction) => {
       if (err) {
