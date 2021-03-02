@@ -10,6 +10,6 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "no-underscore-dangle": "warn"
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   }
 }
