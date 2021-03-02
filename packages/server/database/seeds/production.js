@@ -1,16 +1,17 @@
 // Use Faker https://github.com/Marak/faker.js for random data
 const faker = require("faker");
-const repeater = require("../../helpers/generateSeedData.js");
-const { shotsArray, sceneSeeds } = require("./shot");
+const seeder = require("../seeder");
+const { Production } = require("../../models");
 
-const productionGenerator = () => {
-  return {
-    name: `${faker.company.companyName()} - ${faker.commerce.productName()}`,
-    brief: faker.lorem.paragraph(),
-    scenes: sceneSeeds,
-    shots: shotsArray,
-  };
-};
+const generateProduction = () => ({
+  name: `${faker.company.companyName()} - ${faker.commerce.productName()}`,
+  brief: faker.lorem.paragraph(),
+});
 
-// console.log(repeater(8, productionGenerator));
-module.exports = repeater(10, productionGenerator);
+module.exports = async amount =>
+  seeder({
+    model: Production,
+    plural: "Productions",
+    generateDoc: generateProduction,
+    amount: amount || 10,
+  });
