@@ -11,4 +11,5 @@ module.exports = async ({ model: Model, plural, generateDoc, amount }) => {
   const collection = Model.insertMany(docs);
   // eslint-disable-next-line no-console
   console.log(`${plural}: ${collection}`);
+  return collection;
 };
