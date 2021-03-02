@@ -1,7 +1,7 @@
 // Use Faker https://github.com/Marak/faker.js for random data
 const faker = require("faker");
 const repeater = require("../../helpers/generateSeedData.js");
-const { shotsArray, sceneSeeds } = require("./shotSeeds");
+const { shotsArray, sceneSeeds } = require("./shot");
 
 const productionGenerator = () => {
   return {
