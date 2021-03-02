@@ -1,19 +1,12 @@
 const faker = require("faker");
-const {
-  Types: { ObjectId },
-} = require("mongoose");
-const repeater = require("../../helpers/generateSeedData");
-const shotTypes = require("../shotTypes");
-const sceneSeeds = require("./sceneSeeds");
+const seeder = require("../seeder");
+const shotTypes = require("../data-types/shot");
+const { Shot, Scene } = require("../../models");
 
-const randomSceneId = () => {
-  // creates an array of scene ids to choose from
-  const sceneIds = sceneSeeds.map(scene => {
-    return scene._id;
-  });
-
-  const randomIndex = Math.floor(Math.random() * sceneSeeds.length);
-  return sceneIds[randomIndex];
+const randomScene = () => {
+  const scenes = Scene.aggregate().sample(1).exec();
+  const scene = scenes[0];
+  return scene._id;
 };
 
 const randomShotType = () => {
@@ -21,18 +14,19 @@ const randomShotType = () => {
   return shotTypes[randomIndex];
 };
 
-const shotGenerator = () => {
-  return {
-    _id: ObjectId(),
-    shotType: randomShotType(),
-    complete: false,
-    description: faker.lorem.paragraphs(),
-    thumbnail: faker.image.technics(),
-    referenceImage: faker.image.technics(),
-    sceneId: randomSceneId(),
-  };
-};
+const generateShot = () => ({
+  shotType: randomShotType(),
+  complete: Math.floor(Math.random()),
+  description: faker.lorem.paragraphs(),
+  thumbnail: faker.image.technics(),
+  referenceImage: faker.image.technics(),
+  scene: randomScene(),
+});
 
-const shotsArray = repeater(25, shotGenerator);
-
-module.exports = { shotsArray, sceneSeeds };
+module.exports = async amount =>
+  seeder({
+    model: Shot,
+    plural: "Shots",
+    generateDoc: generateShot,
+    amount: amount || 25,
+  });
