@@ -5,7 +5,7 @@ const faker = require("faker");
 const {
   Types: { ObjectId },
 } = require("mongoose");
-const repeater = require("../helpers/generateSeedData");
+const repeater = require("../../helpers/generateSeedData");
 
 const sceneGenerator = () => {
   return {

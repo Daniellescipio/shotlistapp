@@ -1,7 +1,7 @@
 // Use Faker https://github.com/Marak/faker.js for random data
 const faker = require("faker");
 const repeater = require("../../helpers/generateSeedData");
-const rolesArray = require("../roles");
+const rolesArray = require("./roles");
 
 // returns object with avatar, name, email, phone number
 const peopleGenerator = () => {
