@@ -7,12 +7,14 @@
     "reset": "seed -u 'mongodb://127.0.0.1:27017/shotlistpro' --drop-database ./seeds/"
   },
   "dependencies": {
+    "@shot-list-pro/utils": "*",
+    "bluebird": "^3.7.2",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^5.4.0",
     "mongoose": "^5.11.15",
-    "morgan": "^1.10.0",
-    "@shot-list-pro/utils": "*"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "mongo-seeding": "^3.5.0",
