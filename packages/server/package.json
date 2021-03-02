@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "reset": "seed -u 'mongodb://127.0.0.1:27017/shotlistpro' --drop-database ./seeds/"
+    "reset": "node ../server/database/reset.js"
   },
   "dependencies": {
     "@shot-list-pro/utils": "*",
@@ -17,7 +17,6 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "mongo-seeding": "^3.5.0",
     "nodemon": "^2.0.7"
   }
 }
