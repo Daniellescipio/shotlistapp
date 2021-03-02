@@ -1,7 +1,7 @@
 module.exports = {
-  equipment: require("./equipment"),
-  person: require("./person"),
-  production: require("./production"),
-  scene: require("./scene"),
-  shot: require("./shot"),
+  Equipment: require("./equipment"),
+  Person: require("./person"),
+  Production: require("./production"),
+  Scene: require("./scene"),
+  Shot: require("./shot"),
 };
