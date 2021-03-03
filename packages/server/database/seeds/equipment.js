@@ -2,9 +2,11 @@
 // const faker = require("faker");
 const seeder = require("../seeder");
 const { Equipment } = require("../../models");
+const equipmentList = require("../data-types/equipmentItems");
 
 const generateEquipment = () => {
-  return {};
+  const randomItem = Math.floor(Math.random() * equipmentList.length);
+  return equipmentList[randomItem];
 };
 
 module.exports = async amount =>
@@ -12,5 +14,5 @@ module.exports = async amount =>
     model: Equipment,
     plural: "Equipment",
     generateDoc: generateEquipment,
-    amount: amount || 20,
+    amount: amount || 10,
   });

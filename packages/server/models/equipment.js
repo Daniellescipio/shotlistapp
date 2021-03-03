@@ -7,9 +7,9 @@ const equipmentSchema = new Schema({
   },
   category: {
     type: String,
-    validate: [
-      value => value === "cameras" || value === "lens" || value === "lighting",
-    ],
+  },
+  image: {
+    type: String,
   },
 });
 
