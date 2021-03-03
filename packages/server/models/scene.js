@@ -7,11 +7,9 @@ const sceneSchema = new Schema({
   date: {
     type: Date,
   },
-  notes: [
-    {
-      type: String,
-    },
-  ],
+  notes: {
+    type: String,
+  },
   thumbnail: {
     type: String,
   },
