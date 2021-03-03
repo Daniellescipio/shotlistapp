@@ -9,9 +9,8 @@ const shotSchema = new Schema({
       type: String,
     },
   ],
-  status: {
-    type: String,
-    required: true,
+  done: {
+    type: Boolean,
   },
   default: {
     type: Boolean,

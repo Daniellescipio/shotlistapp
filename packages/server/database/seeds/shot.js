@@ -3,10 +3,10 @@ const seeder = require("../seeder");
 const shotTypes = require("../data-types/shot");
 const { Shot, Scene } = require("../../models");
 
-const randomScene = () => {
-  const scenes = Scene.aggregate().sample(1).exec();
-  const scene = scenes[0];
-  return scene._id;
+const randomScene = async () => {
+  const getScenes = async () => Scene.aggregate().sample(1).exec();
+  const scene = await getScenes();
+  return scene[0]._id;
 };
 
 const randomShotType = () => {
@@ -14,13 +14,13 @@ const randomShotType = () => {
   return shotTypes[randomIndex];
 };
 
-const generateShot = () => ({
+const generateShot = async () => ({
   shotType: randomShotType(),
-  complete: Math.floor(Math.random()),
+  done: false,
   description: faker.lorem.paragraphs(),
   thumbnail: faker.image.technics(),
   referenceImage: faker.image.technics(),
-  scene: randomScene(),
+  scene: await randomScene(),
 });
 
 module.exports = async amount =>
