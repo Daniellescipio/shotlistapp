@@ -1,5 +1,5 @@
 // Use Faker https://github.com/Marak/faker.js for random data
-const faker = require("faker");
+// const faker = require("faker");
 const seeder = require("../seeder");
 const { Equipment } = require("../../models");
 

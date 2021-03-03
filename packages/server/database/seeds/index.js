@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   seedEquipment: require("./equipment"),
   seedPeople: require("./person"),
