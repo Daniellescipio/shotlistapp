@@ -8,7 +8,7 @@ module.exports = async ({ model: Model, plural, generateDoc, amount }) => {
     Array.from({ length: amount }).map(async () => generateDoc())
   );
 
-  const collection = Model.insertMany(docs);
+  const collection = await Model.insertMany(docs);
   // eslint-disable-next-line no-console
   console.log(`${plural}: ${collection}`);
   return collection;
