@@ -1,23 +1,43 @@
 // Use Faker https://github.com/Marak/faker.js for random data
 const faker = require("faker");
 const seeder = require("../seeder");
-const { Production, Person, Equipment, Shot } = require("../../models");
+const { Production, Person, Equipment, Shot, Scene } = require("../../models");
 
-const randomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const randomNum = ({ min, max }) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
 
 const fetchSample = async (Model, range) => {
-  const size = randomNum(...range);
-  const collection = Model.aggregate().sample(size).exec();
+  const size = randomNum(range);
+  const collection = await Model.aggregate().sample(size).exec();
+  // if (Model === Scene) {
+  //   sceneIds = collection.map(doc => doc._id);
+  // }
   return collection.map(doc => doc._id);
 };
 
-const generateProduction = async () => ({
-  name: `${faker.company.companyName()} - ${faker.commerce.productName()}`,
-  brief: faker.lorem.paragraph(),
-  people: await fetchSample(Person, { min: 3, max: 15 }),
-  equipment: await fetchSample(Equipment, { min: 5, max: 10 }),
-  shots: await fetchSample(Shot, { min: 10, max: 25 }),
-});
+//match
+const matchShots = async scenes => {
+  const shots = scenes.map(async sceneId => {
+    // console.log("SCENEID", sceneId);
+    const collection = await Shot.find({ scene: sceneId }).exec();
+    // console.log("COLLECTION", collection.map(doc => doc._id).flat());
+    return collection.map(doc => doc._id);
+  })[0];
+  return shots;
+};
+
+const generateProduction = async () => {
+  const scenes = await fetchSample(Scene, { min: 1, max: 5 });
+  return {
+    name: `${faker.company.companyName()} - ${faker.commerce.productName()}`,
+    brief: faker.lorem.paragraph(),
+    scenes,
+    people: await fetchSample(Person, { min: 3, max: 8 }),
+    equipment: await fetchSample(Equipment, { min: 3, max: 6 }),
+    shots: await matchShots(scenes),
+    thumbnail: faker.image.abstract(),
+  };
+};
 
 module.exports = async amount =>
   seeder({
