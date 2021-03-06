@@ -4,9 +4,9 @@ const shotTypes = require("../data-types/shot");
 const { Shot, Scene } = require("../../models");
 
 const randomScene = async () => {
-  const getScenes = async () => Scene.aggregate().sample(1).exec();
-  const scene = await getScenes();
-  return scene[0]._id;
+  const scenes = await Scene.aggregate().sample(1).exec();
+  const scene = scenes[0];
+  return scene._id;
 };
 
 const randomShotType = () => {
