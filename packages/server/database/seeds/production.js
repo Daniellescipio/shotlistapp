@@ -15,7 +15,7 @@ const fetchSample = async (Model, range) => {
   return collection.map(doc => doc._id);
 };
 
-//match
+// match
 const matchShots = async scenes => {
   const shots = scenes.map(async sceneId => {
     // console.log("SCENEID", sceneId);
