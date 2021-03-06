@@ -1,21 +1,14 @@
 const { model, Schema } = require("mongoose");
 
 const shotSchema = new Schema({
-  category: {
+  shotType: {
     type: String,
   },
-  description: [
-    {
-      type: String,
-    },
-  ],
+  description: {
+    type: String,
+  },
   done: {
     type: Boolean,
-  },
-  default: {
-    type: Boolean,
-    required: true,
-    default: false,
   },
   scene: {
     type: Schema.Types.ObjectId,
