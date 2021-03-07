@@ -4,7 +4,7 @@ const { Scene } = require("../../models");
 
 const generateScene = () => ({
   location: faker.address.city(),
-  date: faker.date.between("2/1/21", "4/1/21"),
+  date: faker.date.between("3/1/21", "8/1/21"),
   notes: faker.lorem.paragraphs(),
   thumbnail: faker.image.city(),
 });
