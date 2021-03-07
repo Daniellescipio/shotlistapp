@@ -8,8 +8,6 @@ function ProductionProvider(props) {
   const [shot, setShot] = useState([]);
   const [scene, setScene] = useState([]);
   const [shotsFromAScene, setShotsFromAScene] = useState([]);
-  const [person, setPerson] = useState({});
-  const [equipment, setEquipment] = useState([]);
 
   function getAllProductions() {
     axios
@@ -89,7 +87,7 @@ function ProductionProvider(props) {
   }
   function deleteAScene(productionId, sceneId) {
     axios
-      .delete(`productions/${productionId}/${sceneId}/removeScene`)
+      .put(`productions/${productionId}/${sceneId}/removeScene`)
       .then(response => {
         const updatedArray = productions.map(production => {
           if (production._id === productionId) {
@@ -142,7 +140,7 @@ function ProductionProvider(props) {
   }
   function deleteAShot(productionId, shotId) {
     axios
-      .delete(`productions/${productionId}/${shotId}/removeShot`)
+      .put(`productions/${productionId}/${shotId}/removeShot`)
       .then(response => {
         const updatedArray = productions.map(production => {
           if (production._id === productionId) {
@@ -156,6 +154,64 @@ function ProductionProvider(props) {
     axios.delete(`shots/${shotId}`).then(() => {
       setShot({});
     });
+  }
+  function addANewPerson(productionId, newPerson) {
+    axios
+      .put(`/productions/${productionId}/$addPerson`, newPerson)
+      .then(response => {
+        const updatedArray = productions.map(production => {
+          if (production._id === productionId) {
+            return response.data;
+          } else {
+            return production;
+          }
+        });
+        setProductions(updatedArray);
+      });
+  }
+  function addAnExistingPerson(productionId, personId, existingPerson) {
+    axios
+      .put(`/productions/${productionId}/${personId}addPerson`, existingPerson)
+      .then(response => {
+        const updatedArray = productions.map(production => {
+          if (production._id === productionId) {
+            return response.data;
+          } else {
+            return production;
+          }
+        });
+        setProductions(updatedArray);
+      });
+  }
+  function editAPerson(personId, edits) {
+    axios.put(`/people/${personId}`, edits)
+    .then(response =>{
+        const updatedArray = productions.people.map(person => {
+            if (person._id === personId) {
+              return response.data;
+            } else {
+              return person;
+            }
+          });
+          setProduction(prev=>({...prev, people: updatedArray}));
+    })
+  }
+  function removeAPerson(productionId, personId) {
+    axios
+      .delete(`productions/${productionId}/${personId}/removePerson`)
+      .then(response => {
+        const updatedArray = productions.map(production => {
+          if (production._id === productionId) {
+            return response.data;
+          } else {
+            return production;
+          }
+        });
+        setProductions(updatedArray);
+      });
+  }
+  function deleteAPerson(personId){
+    axios.delete(`people/${personId}`)
   }
   function getShots(sceneId) {
     axios
@@ -189,6 +245,11 @@ function ProductionProvider(props) {
         addAShot,
         editAShot,
         deleteAShot,
+        addANewPerson,
+        addAnExistingPerson,
+        editAPerson,
+        removeAPerson,
+        deleteAPerson,
       }}
     >
       {props.children}
