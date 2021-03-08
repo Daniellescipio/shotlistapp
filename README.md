@@ -19,7 +19,7 @@ As a photographer, filmmaker, or producer **Shot List Pro** helps you plan and d
 - Gabe Marchant
 - Michelle Brinkerhoff
 
-# Getting Started
+## Getting Started
 
 Install Yarn
 
