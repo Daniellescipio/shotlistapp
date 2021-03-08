@@ -34,7 +34,7 @@ sceneRouter.delete("/:sceneId", (req, res, next) => {
     return res.status(200).send("The scene has been deleted");
   });
 });
-// edit a person
+// edit a scene
 sceneRouter.put("/:sceneId", (req, res, next) => {
   Scene.findOneAndUpdate(
     { _id: req.params.sceneId },
