@@ -19,57 +19,55 @@ As a photographer, filmmaker, or producer **Shot List Pro** helps you plan and d
 - Gabe Marchant
 - Michelle Brinkerhoff
 
-### Tech Stack:
+# Getting Started
 
-React
-Mongo
+Install Yarn
 
-### Data Structure for a "Production"
+`npm install --global yarn`
 
-```JS
-const productionModel = {
-  "production_collection":
-    [
-      {
-        "title": "",
-        "description": "",
-        "scenes":
-          [
-            {
-              "date": "02/13/21",
-              "time": "11:00 AM",
-              "location": "",
-              "notes": "",
-              "shots": [
-                {
-                  "category": "",
-                  "categoryImage": "Custome Image || Default Image",
-                  "status": "",
-                  "description": "",
-                  "image": "url",
-                  "categoryImage": "",
-                  "equipment": [
-                    {
-                      "name": "",
-                      "category": "",
-                      "icon": ""
-                    }
-                  ]
-                }
-              ],
-              "people": [
-                {
-                  "headshot": "",
-                  "name": "",
-                  "role": "",
-                  "email": "",
-                  "phone": ""
-                }
-              ],
+Seed Database
 
-            }
-          ]
-      }
-    ]
-}
+`yarn lerna run reset`
+
+Start Backend and Front End
+
+`yarn start`
+
+## Server Routes
+
+### Productions
+
+**Get All**
+URL: `/productions`
+
+**Returns:**
+All productions via an `Array` of `Objects`
+
+Example
+
+```JSON
+[
+  {
+    "_id": "60451c63dba87827b5a542bb",
+    "name": "Muller - Stehr - Tasty Plastic Bacon",
+    "brief": "Mollitia a sed fuga veritatis. Omnis architecto praesentium commodi quae iste et ipsam fuga. Maiores laboriosam rem consequatur. Nemo voluptate in perferendis dolorum quos soluta et. Dicta voluptates laudantium.",
+    "thumbnail": "http://placeimg.com/640/480/abstract",
+    "scenes": [
+        "60451c62dba87827b5a5427e",
+    ],
+    "people": [
+        "60451c62dba87827b5a54263",
+    ],
+    "equipment": [
+        "60451c62dba87827b5a54270",
+    ],
+    "shots": [
+        "60451c62dba87827b5a5429b",
+    ],
+    }
+  ]
 ```
+
+Post
+Get One
+Delete
