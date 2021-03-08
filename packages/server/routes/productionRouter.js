@@ -59,22 +59,7 @@ productionRouter.put("/:productionId/addScene", (req, res, next) => {
     }
   );
 });
-// add an existing scene
-productionRouter.put("/:productionId/:sceneId/addScene", (req, res, next) => {
-  const existingScene = req.params.sceneId;
-  Production.findOneAndUpdate(
-    { _id: req.params.productionId },
-    { $push: { scenes: existingScene } },
-    { new: true },
-    (err, updatedProduction) => {
-      if (err) {
-        res.status(500);
-        return next(err);
-      }
-      return res.status(200).send(updatedProduction);
-    }
-  );
-});
+
 // add a new person
 productionRouter.put("/:productionId/addPerson", (req, res, next) => {
   const newPerson = new Person(req.body);
@@ -126,22 +111,7 @@ productionRouter.put("/:productionId/:sceneId/addShot", (req, res, next) => {
     }
   );
 });
-// add an exisiting shot
-productionRouter.put("/:productionId/:personId/addPerson", (req, res, next) => {
-  const existingPerson = req.params.personId;
-  Production.findOneAndUpdate(
-    { _id: req.params.productionId },
-    { $push: { people: existingPerson } },
-    { new: true },
-    (err, updatedProduction) => {
-      if (err) {
-        res.status(500);
-        return next(err);
-      }
-      return res.status(200).send(updatedProduction);
-    }
-  );
-});
+
 // remove a scene
 productionRouter.put(
   "/:productionId/:sceneId/removeScene",
