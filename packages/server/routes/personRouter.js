@@ -33,7 +33,18 @@ personRouter.delete("/:castId", (req, res, next) => {
     return res.status(200).send("The cast member has been deleted");
   });
 });
-// edit a person
+// Add Person
+personRouter.post("/", (req, res, next) => {
+  const newPerson = new Person(req.body);
+  newPerson.save((err, savedPerson) => {
+    if (err) {
+      res.status(500);
+      return next(err);
+    }
+    return res.status(200).send(savedPerson);
+  });
+});
+// Edit a person
 personRouter.put("/:castId", (req, res, next) => {
   Person.findOneAndUpdate(
     { _id: req.params.castId },
