@@ -19,57 +19,18 @@ As a photographer, filmmaker, or producer **Shot List Pro** helps you plan and d
 - Gabe Marchant
 - Michelle Brinkerhoff
 
-### Tech Stack:
+## Getting Started
 
-React
-Mongo
+Install Yarn
 
-### Data Structure for a "Production"
+`npm install --global yarn`
 
-```JS
-const productionModel = {
-  "production_collection":
-    [
-      {
-        "title": "",
-        "description": "",
-        "scenes":
-          [
-            {
-              "date": "02/13/21",
-              "time": "11:00 AM",
-              "location": "",
-              "notes": "",
-              "shots": [
-                {
-                  "category": "",
-                  "categoryImage": "Custome Image || Default Image",
-                  "status": "",
-                  "description": "",
-                  "image": "url",
-                  "categoryImage": "",
-                  "equipment": [
-                    {
-                      "name": "",
-                      "category": "",
-                      "icon": ""
-                    }
-                  ]
-                }
-              ],
-              "people": [
-                {
-                  "headshot": "",
-                  "name": "",
-                  "role": "",
-                  "email": "",
-                  "phone": ""
-                }
-              ],
+Seed Database
 
-            }
-          ]
-      }
-    ]
-}
-```
+`yarn lerna run reset`
+
+Start Backend and Front End
+
+`yarn start`
+
+## Server Routes

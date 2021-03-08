@@ -26,6 +26,19 @@ shotRouter.get("/:shotId", (req, res, next) => {
       return res.status(200).send(shot);
     });
 });
+// get all the shots from a scene
+shotRouter.get("/:sceneId/shots", (req, res, next) => {
+  Shot.find({ scene: req.params.sceneId })
+    .populate("scene")
+    .exec((err, shots) => {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
+      return res.status(200).send(shots);
+    });
+});
+
 // edit a shot
 shotRouter.put("/:shotId", (req, res, next) => {
   Shot.findOneAndUpdate(
