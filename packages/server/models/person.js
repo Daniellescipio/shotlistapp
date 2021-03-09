@@ -1,7 +1,7 @@
 const { model, Schema } = require("mongoose");
 
 const personSchema = new Schema({
-  headshot: {
+  avatar: {
     type: String,
   },
   name: {
@@ -15,7 +15,7 @@ const personSchema = new Schema({
     type: String,
   },
   skills: {
-    type: Array,
+    type: String,
   },
   role: {
     type: String,

@@ -15,14 +15,13 @@ const seedDatabase = async () => {
   try {
     await seedPeople();
     await seedEquipment();
-    await seedScenes(20);
-    await seedShots();
-    await seedProductions();
+    await seedScenes(15);
+    await seedShots(50);
+    await seedProductions(5);
+    connection.close();
   } catch (err) {
     console.log(err); // eslint-disable-line
   }
 };
 
 seedDatabase();
-
-console.log("DONE"); // eslint-disable-line

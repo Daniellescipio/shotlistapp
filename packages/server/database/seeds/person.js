@@ -14,7 +14,7 @@ const generatePerson = () => {
     name: faker.name.findName(),
     role: randomRole(),
     email: faker.internet.email(),
-    phoneNumber: faker.phone.phoneNumberFormat(),
+    phone: faker.phone.phoneNumberFormat(),
     avatar: faker.image.cats(),
     skills: faker.lorem.words(),
   };
