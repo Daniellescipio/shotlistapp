@@ -9,13 +9,18 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.6",
+    "@chakra-ui/react": "^1.3.4",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "@shot-list-pro/ui-lib": "*",
+    "@shot-list-pro/utils": "*",
+    "framer-motion": "^3.10.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
-    "web-vitals": "^1.0.1",
-    "@shot-list-pro/ui-lib": "*",
-    "@shot-list-pro/utils": "*"
+    "web-vitals": "^1.0.1"
   },
   "eslintConfig": {
     "extends": [
