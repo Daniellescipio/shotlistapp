@@ -15,7 +15,9 @@ const theme = extendTheme({
   components: {
     Button: {
       variants: {
-        "primary-with-icon": {
+        primary: {
+          textTransform: "uppercase",
+          py: 7,
           bgGradient: "linear(to-b, brand.secondary, brand.primary)",
           color: "black",
         },
