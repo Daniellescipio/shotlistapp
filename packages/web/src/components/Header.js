@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HStack, Spacer, Button, Image } from "@chakra-ui/react";
+import { Center, HStack, Spacer, Button, Image } from "@chakra-ui/react";
 import ShotListLogo from "../assets/logo.svg";
 
 const Header = () => {
   return (
-    <HStack px={100} py={5} bg="black">
-      <Logo />
-      <Spacer />
-      <NavBar />
-    </HStack>
+    <Center bg="black" px={100}>
+      <HStack w={"100%"} maxW="80em" py={5}>
+        <Logo />
+        <Spacer />
+        <NavBar />
+      </HStack>
+    </Center>
   );
 };
 
