@@ -20,7 +20,7 @@ const Hero = () => {
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"
-      p={100}
+      p={[5, 10, 50, 100]}
     >
       <VStack
         spacing={100}
