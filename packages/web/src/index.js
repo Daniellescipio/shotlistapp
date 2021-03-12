@@ -9,6 +9,8 @@ const theme = extendTheme({
     brand: {
       primary: "#FCC201",
       secondary: "#B78628",
+      darkGradDark: "#3D3D3D",
+      darkGradLight: "#484848",
     },
   },
   config: { initialColorMode: "dark" },
@@ -17,9 +19,13 @@ const theme = extendTheme({
       variants: {
         primary: {
           textTransform: "uppercase",
+          minWidth: "300px",
           py: 7,
-          bgGradient: "linear(to-b, brand.secondary, brand.primary)",
-          color: "black",
+          bgGradient: "linear(to-b, black, brand.darkGradDark)",
+          color: "brand.primary",
+          _hover: {
+            bgGradient: "linear(to-b, black, brand.darkGradLight)",
+          },
         },
         "outline-highlight": {
           textTransform: "uppercase",
