@@ -15,7 +15,7 @@ import HeroImage from "../assets/hero-image.webp";
 const Hero = () => {
   return (
     <Center
-      h="75vh"
+      h="50vh"
       bgImage={`url('${HeroImage}')`}
       bgPosition="center"
       bgRepeat="no-repeat"
