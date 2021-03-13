@@ -7,7 +7,9 @@ import {
   HStack,
 } from "@chakra-ui/react";
 
-const ProductionCard = () => {
+const ProductionCard = ({ data: { name, thumbnail, scenes, startDate } }) => {
+  const date = new Date(startDate).toLocaleString("en-US");
+
   return (
     <Box
       boxShadow="dark-lg"
@@ -23,24 +25,20 @@ const ProductionCard = () => {
       bgSize="cover"
     >
       <AspectRatio maxW="500px" ratio={16 / 9}>
-        <Image
-          borderTopRadius={14}
-          objectFit="cover"
-          src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80"
-        />
+        <Image borderTopRadius={14} objectFit="cover" src={thumbnail} />
       </AspectRatio>
 
       <Box w="full" paddingTop={2}>
         <Text color="black" fontWeight="bold" align="left" fontSize="sm" px={4}>
-          Production Title
+          {name}
         </Text>
         <HStack w="full" px={4}>
           <Text color="black" fontSize="sm">
-            03/11/21
+            {date}
           </Text>
           <Spacer />
           <Text color="black" fontSize="sm">
-            Scenes: 20
+            Scenes: {scenes.length}
           </Text>
         </HStack>
       </Box>

@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import App from "./components/App";
-
+import { ProductionProvider } from "./context/productionContext";
 const theme = extendTheme({
   colors: {
     brand: {
@@ -44,7 +44,9 @@ const theme = extendTheme({
 const Root = () => (
   <Router>
     <ChakraProvider theme={theme}>
-      <App />
+      <ProductionProvider>
+        <App />
+      </ProductionProvider>
     </ChakraProvider>
   </Router>
 );

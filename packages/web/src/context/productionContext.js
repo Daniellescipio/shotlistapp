@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 const ProductionContext = React.createContext();
 
+const SERVER = "http://localhost:4000";
+
 function ProductionProvider(props) {
   const [productions, setProductions] = useState([]);
   const [production, setProduction] = useState([]);
@@ -11,7 +13,7 @@ function ProductionProvider(props) {
 
   function getAllProductions() {
     axios
-      .get(`/productions/`)
+      .get(`${SERVER}/productions/`)
       .then(response => {
         setProductions(response.data);
       })

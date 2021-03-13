@@ -1,8 +1,15 @@
 import { Heading, Grid, Box, Button, Icon, Text } from "@chakra-ui/react";
 import ProductionCard from "../components/ProductionsCard";
 import { ReactComponent as SlateIcon } from "../assets/slate-icon.svg";
-
+import { useContext, useEffect } from "react";
+import { ProductionContext } from "../context/productionContext";
 const MainContent = () => {
+  const { productions, getAllProductions } = useContext(ProductionContext);
+
+  useEffect(() => {
+    getAllProductions();
+  }, []);
+
   return (
     <Box paddingTop={10} paddingBottom={20}>
       <Heading
@@ -28,10 +35,9 @@ const MainContent = () => {
         justify={["center", "center", "start", "center"]}
         px={[5, 10, 50, 100]}
       >
-        <ProductionCard />
-        <ProductionCard />
-        <ProductionCard />
-        <ProductionCard />
+        {productions.map(production => (
+          <ProductionCard key={production._id} data={production} />
+        ))}
       </Grid>
     </Box>
   );
