@@ -9,9 +9,6 @@ const randomNum = ({ min, max }) =>
 const fetchSample = async (Model, range) => {
   const size = randomNum(range);
   const collection = await Model.aggregate().sample(size).exec();
-  // if (Model === Scene) {
-  //   sceneIds = collection.map(doc => doc._id);
-  // }
   return collection.map(doc => doc._id);
 };
 
@@ -31,11 +28,12 @@ const generateProduction = async () => {
   return {
     name: `${faker.company.companyName()} - ${faker.commerce.productName()}`,
     brief: faker.lorem.paragraph(),
+    startDate: faker.date.between("4/1/21", "8/1/21"),
     scenes,
     people: await fetchSample(Person, { min: 3, max: 8 }),
     equipment: await fetchSample(Equipment, { min: 3, max: 6 }),
     shots: await matchShots(scenes),
-    thumbnail: faker.image.abstract(),
+    thumbnail: "https://source.unsplash.com/random",
   };
 };
 

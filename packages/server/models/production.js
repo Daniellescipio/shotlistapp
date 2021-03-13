@@ -9,6 +9,9 @@ const productionSchema = new Schema({
     type: String,
     required: true,
   },
+  startDate: {
+    type: String,
+  },
   scenes: [
     {
       type: Schema.Types.ObjectId,
