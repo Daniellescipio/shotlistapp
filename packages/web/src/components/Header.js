@@ -74,9 +74,9 @@ const NavBar = () => {
     );
   return (
     <HStack spacing={[null, null, null, null, 10]}>
-      <NavLink>Add New Production</NavLink>
-      <NavLink>Current Production</NavLink>
-      <NavLink>Contact List</NavLink>
+      <NavLink to="#">Add New Production</NavLink>
+      <NavLink to="#">Current Production</NavLink>
+      <NavLink to="#">Contact List</NavLink>
     </HStack>
   );
 };
