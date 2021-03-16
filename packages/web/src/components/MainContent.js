@@ -1,4 +1,4 @@
-import { Heading, Wrap, Box, Button, Icon, Text } from "@chakra-ui/react";
+import { Heading, Grid, Box, Button, Icon, Text } from "@chakra-ui/react";
 import ProductionCard from "../components/ProductionsCard";
 import { ReactComponent as SlateIcon } from "../assets/slate-icon.svg";
 
@@ -7,7 +7,7 @@ const MainContent = () => {
     <Box paddingTop={10} paddingBottom={20}>
       <Heading
         py={8}
-        px={100}
+        px={{ base: 5, sm: 10, md: 50, xl: 100 }}
         size="lg"
         textTransform="uppercase"
         fontWeight="light"
@@ -15,12 +15,24 @@ const MainContent = () => {
         Current Productions
       </Heading>
 
-      <Wrap w="full" spacing={16} justify="center">
+      <Grid
+        templateColumns={{
+          base: "repeat(auto-fit, 300px)",
+          sm: "repeat(auto-fit, 360px)",
+          md: "repeat(auto-fit, 460px)",
+        }}
+        gap={{ base: 10, md: 20, lg: 20 }}
+        gridAutoFlow="row"
+        justifyContent="center"
+        w="full"
+        justify={["center", "center", "start", "center"]}
+        px={[5, 10, 50, 100]}
+      >
         <ProductionCard />
         <ProductionCard />
         <ProductionCard />
         <ProductionCard />
-      </Wrap>
+      </Grid>
     </Box>
   );
 };

@@ -11,8 +11,12 @@ const ProductionCard = () => {
   return (
     <Box
       boxShadow="dark-lg"
-      w="460px"
-      h="320px"
+      // maxw="460px"
+      // maxh="320px"
+      w={{ base: "300px", sm: "360px", md: "460px" }}
+      h={{ base: "230px", sm: "260px", md: "320px" }}
+      // w={["300px", "360px", "280px", null, "460px"]}
+      // h={["230px", "260px", "210px", null, "320px"]}
       borderRadius={14}
       bgColor="brand.primary"
       bgGradient="linear(to-b, brand.secondary, brand.primary)"
